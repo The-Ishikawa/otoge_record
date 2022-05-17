@@ -3,11 +3,13 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:otoge_record/Controller_SongDataController.dart';
 
 ///other dart files
 import 'Provider_SongDataProvider.dart';
 import 'UI_TopScreen.dart';
 
+SongDataController songDataController = SongDataController();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();  //向きの固定
@@ -52,17 +54,9 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
   }
 
   Future loadLocalJson() async{
-
     String _jsonString = await rootBundle.loadString("assets/SongData.json");
     Map<dynamic, dynamic> _jsonData = json.decode(_jsonString);
-    SongDataProvider sdp = SongDataProvider();
-    sdp.setSongDataMap(_jsonData);
-    print(_jsonString);  ///debug
-    print(_jsonData); ///debug
-    print(sdp.songDataMap); ///debug
-    print(sdp.idList);
-    print(sdp.idListNum);
-
+    songDataController.setSongDataMap(_jsonData);
   }
 
   @override

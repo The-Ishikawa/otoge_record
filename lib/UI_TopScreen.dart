@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:otoge_record/main.dart';
 
 import 'Provider_SongDataProvider.dart';
+import 'Controller_SongDataController.dart';
 
 final songDataProvider =
 ChangeNotifierProvider((ref) => SongDataProvider());  //provider
@@ -14,7 +15,7 @@ class TopScreen extends ConsumerWidget{
   Widget build(BuildContext context, WidgetRef ref){
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
-    print(ref.watch(songDataProvider).idListNum);
+    songDataController.setReference(ref.read(songDataProvider));
 
     return Scaffold(
       appBar: AppBar(

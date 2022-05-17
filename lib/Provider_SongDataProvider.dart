@@ -11,7 +11,6 @@ class SongDataProvider extends ChangeNotifier{
 
   void setSongDataMap(Map _path){
     _songDataMap = _path;
-    mapToList();
     notifyListeners();
   }
 
@@ -29,5 +28,4 @@ class SongDataProvider extends ChangeNotifier{
     print(_idListNum);
     notifyListeners();
   }
-
 }
