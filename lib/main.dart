@@ -1,20 +1,23 @@
 ///package
-import 'dart:html';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:image_picker/image_picker.dart';
 
 ///other dart files
 import 'Provider_SongDataProvider.dart';
+import 'UI_TopScreen.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();  //向きの固定
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp, //縦に固定
   ]);
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+        child: MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -49,13 +52,16 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
   }
 
   Future loadLocalJson() async{
+
     String _jsonString = await rootBundle.loadString("assets/SongData.json");
     Map _jsonData = json.decode(_jsonString);
     SongDataProvider sdp = SongDataProvider();
     sdp.setSongDataMap(_jsonData);
     print(_jsonString);  ///debug
     print(_jsonData); ///debug
-    print(sdp.SongDataMap); ///debug
+    print(sdp.songDataMap); ///debug
+    print(sdp.idList);
+    print(sdp.songDataMap[0]["notes"]);
   }
 
   @override
@@ -85,21 +91,6 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
 
   @override
   Widget build(BuildContext context){
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("音ゲーリザルト"),
-      ),
-      body: Container(
-        height: _height,
-        width: _width,
-        color: Colors.grey,
-        child: Center(
-
-        ),
-      ),
-    );
+    return const TopScreen();
   }
 }

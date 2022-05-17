@@ -1,20 +1,36 @@
-{
-  "IIdx": [
-    {
-      "id": 0,
-      "name": "name",
-      "level": 12,
-      "difficulty": 12,
-      "versionNumber": 0,
-      "versionName": "5th Style"
-    },
-    {
-      "id": 1,
-      "name": "name",
-      "level": 12,
-      "difficulty": 12,
-      "versionNumber": 0,
-      "versionName": "6th Style"
-    }
-  ]
-}
+[
+  {
+    "id": 0,
+    "name": "name0",
+    "level": 12,
+    "difficulty": "ANOTHER",
+    "versionNumber": 5,
+    "versionName": "5th Style",
+    "notes": 1000,
+    "memo": ""
+  },
+  {
+    "id": 1,
+    "name": "name1",
+    "level": 12,
+    "difficulty": "ANOTHER",
+    "versionNumber": 6,
+    "versionName": "6th Style",
+    "notes": 2000,
+    "memo": ""
+  },
+  {
+    "id": 2,
+    "name": "name2",
+    "level": 12,
+    "difficulty": "ANOTHER",
+    "versionNumber": 7,
+    "versionName": "7th Style",
+    "notes": 1900,
+    "memo": ""
+  },
+  {
+    "id": 3,
+    "note": -1
+  }
+]
