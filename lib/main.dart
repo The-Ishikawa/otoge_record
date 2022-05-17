@@ -54,14 +54,14 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
   Future loadLocalJson() async{
 
     String _jsonString = await rootBundle.loadString("assets/SongData.json");
-    Map _jsonData = json.decode(_jsonString);
+    Map<dynamic, dynamic> _jsonData = json.decode(_jsonString);
     SongDataProvider sdp = SongDataProvider();
     sdp.setSongDataMap(_jsonData);
     print(_jsonString);  ///debug
     print(_jsonData); ///debug
     print(sdp.songDataMap); ///debug
-    print(sdp.idList);
-    print(sdp.songDataMap[0]["notes"]);
+    //print(sdp.idList[0]);
+    //print(sdp.songDataMap[0]["notes"]);
   }
 
   @override

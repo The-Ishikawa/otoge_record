@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class SongDataProvider extends ChangeNotifier{
   Map _songDataMap = {};
-  List _idList = [];
+  //List _idList = [];
 
-  Map get songDataMap => _songDataMap;
-  List get idList => _idList;
+  Map<dynamic, dynamic> get songDataMap => _songDataMap;
+  //List get idList => _idList;
 
   void setSongDataMap(Map _path){
     _songDataMap = _path;
@@ -13,6 +13,7 @@ class SongDataProvider extends ChangeNotifier{
     notifyListeners();
   }
 
+  /*
   void mapToList(){
     int _i = 0;
     while(true){
@@ -23,4 +24,5 @@ class SongDataProvider extends ChangeNotifier{
       _i++;
     }
   }
+  */
 }
