@@ -1,9 +1,13 @@
 ///package
 import 'dart:html';
+import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+
+///other dart files
+import 'Provider_SongDataProvider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();  //向きの固定
@@ -40,8 +44,20 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
   @override
   void initState(){
     super.initState();
+    loadLocalJson();
     WidgetsBinding.instance!.addObserver(this);
   }
+
+  Future loadLocalJson() async{
+    String _jsonString = await rootBundle.loadString("assets/SongData.json");
+    Map _jsonData = json.decode(_jsonString);
+    SongDataProvider sdp = SongDataProvider();
+    sdp.setSongDataMap(_jsonData);
+    print(_jsonString);  ///debug
+    print(_jsonData); ///debug
+    print(sdp.SongDataMap); ///debug
+  }
+
   @override
   void dispose(){
     print("dispose");
@@ -75,18 +91,14 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
     return Scaffold(
       appBar: AppBar(
         title: const Text("音ゲーリザルト"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: (){},
-
-          ),
-        ],
       ),
       body: Container(
         height: _height,
         width: _width,
         color: Colors.grey,
+        child: Center(
+
+        ),
       ),
     );
   }

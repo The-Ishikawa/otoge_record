@@ -1,38 +1,20 @@
 {
   "IIdx": [
     {
-      "1stStyle": [
-        {
-          "id": 0,
-          "name": "5.1.1.",
-          "level": 10,
-          "difficult": "Another"
-        }
-      ],
-      "subStream": [
-        {
-        }
-      ],
-      "2ndStyle": [
-
-      ],
-      "3ndStyle": [
-
-      ],
-      "4thStyle": [
-
-      ],
-      "5thStyle": [
-        {
-          "id": 0,
-          "name": "V",
-          "level": 12,
-          "difficult": "Another"
-        }
-      ],
-      "6thStyle": [
-
-      ]
+      "id": 0,
+      "name": "name",
+      "level": 12,
+      "difficulty": 12,
+      "versionNumber": 0,
+      "versionName": "5th Style"
+    },
+    {
+      "id": 1,
+      "name": "name",
+      "level": 12,
+      "difficulty": 12,
+      "versionNumber": 0,
+      "versionName": "6th Style"
     }
   ]
 }
