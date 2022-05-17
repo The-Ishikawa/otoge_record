@@ -60,8 +60,9 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
     print(_jsonString);  ///debug
     print(_jsonData); ///debug
     print(sdp.songDataMap); ///debug
-    //print(sdp.idList[0]);
-    //print(sdp.songDataMap[0]["notes"]);
+    print(sdp.idList);
+    print(sdp.idListNum);
+
   }
 
   @override
