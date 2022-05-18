@@ -75,6 +75,17 @@ class TopScreen extends ConsumerWidget{
                             songDataMap["IIdx"][index]["level"].toString(),
                           ),
                         ),
+
+                        Expanded(
+                          child: Container(
+                            height: _height * 0.05,
+                            color: Colors.redAccent,
+                            child: Text(
+                              ref.watch(songDataProvider).
+                              songDataMap["IIdx"][index]["name"].toString(),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   );
