@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
     WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state){
     print("state = $state");

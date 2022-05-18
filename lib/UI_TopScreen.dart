@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:otoge_record/main.dart';
 
 import 'Provider_SongDataProvider.dart';
-import 'Controller_SongDataController.dart';
 
 final songDataProvider =
 ChangeNotifierProvider((ref) => SongDataProvider());  //provider
@@ -25,21 +24,45 @@ class TopScreen extends ConsumerWidget{
         height: double.infinity,
         width: double.infinity,
         color: Colors.grey,
-        child: Center(
-          child: SizedBox(
-            width: _width * 0.7,
-            height: _height * 0.7,
-            child: ListView.builder(
-              itemCount: ref.watch(songDataProvider).idListNum,
-              itemBuilder: (BuildContext context, index){
-                return Container(
-                  width: _width * 0.7,
-                  height: _height * 0.1,
-                  color: Colors.blue,
-                );
-              },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+
+            Container(
+              width: _width * 0.95,
+              height: _height * 0.20,
+              margin: EdgeInsets.only(
+                top: _height * 0.01
+              ),
+              color: Colors.white,
             ),
-          ),
+
+            Container(
+              width: _width,
+              height: _height * 0.05,
+              color: Colors.red,
+            ),
+
+            SizedBox(
+              width: _width * 0.95,
+              height: _height * 0.5,
+              child: ListView.builder(
+                itemCount: 10,//ref.watch(songDataProvider).idList.length,
+                itemBuilder: (BuildContext context, index){
+                  return Container(
+                    margin: EdgeInsets.only(
+                      bottom: _height * 0.005
+                    ),
+                    width: _width * 0.8,
+                    height: _height * 0.05,
+                    color: Colors.blue,
+                  );
+                }
+              ),
+            ),
+
+          ],
         ),
       ),
     );
