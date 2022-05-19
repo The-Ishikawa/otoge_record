@@ -8,7 +8,8 @@
       "versionNumber": 5,
       "versionName": "5th Style",
       "notes": 1000,
-      "memo": ""
+      "memo": "",
+      "clear": "FULLCOMBO"
     },
     {
       "id": 1,
@@ -18,7 +19,8 @@
       "versionNumber": 6,
       "versionName": "6th Style",
       "notes": 2000,
-      "memo": ""
+      "memo": "",
+      "clear": "NORMAL"
     },
     {
       "id": 2,
