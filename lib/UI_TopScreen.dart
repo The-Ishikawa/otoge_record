@@ -66,15 +66,15 @@ class TopScreen extends ConsumerWidget{
                           Container(
                             height: _height * 0.05,
                             width: _width * 0.03,
-                            color: Colors.red/*Color.fromRGBO(
+                            color: Color.fromRGBO(
                                 ref.watch(songDataProvider).songDataMap["IIdx"]
-                                [ref.watch(songDataProvider).idList[index]]["color"]["red"],
+                                [ref.watch(songDataProvider).idList[index]]["red"],
                                 ref.watch(songDataProvider).songDataMap["IIdx"]
-                                [ref.watch(songDataProvider).idList[index]]["color"]["green"],
+                                [ref.watch(songDataProvider).idList[index]]["green"],
                                 ref.watch(songDataProvider).songDataMap["IIdx"]
-                                [ref.watch(songDataProvider).idList[index]]["color"]["blue"],
+                                [ref.watch(songDataProvider).idList[index]]["blue"],
                                 1
-                            ),*/
+                            ),
                             
                           ),
 

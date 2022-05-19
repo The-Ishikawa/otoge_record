@@ -28,6 +28,7 @@ class SongDataController{
   }
   void colorToMap(){
     int _i = 0;
+    var grayRGB ={"red": 128, "green": 128, "blue": 128};
     while(true){
       if(_songDataMap["IIdx"][_i]["notes"] == -1){
         break;
@@ -35,10 +36,8 @@ class SongDataController{
       if(_songDataMap["IIdx"][_i].containsKey("clear") == true){
 
       }else if(_songDataMap["IIdx"][_i].containsKey("clear") == false){
-        _songDataMap["IIdx"][_i]["color"]["red"] = 128;
-        _songDataMap["IIdx"][_i]["color"]["green"] = 128;
-        _songDataMap["IIdx"][_i]["color"]["blue"] = 128;
-        print(_songDataMap["IIdx"][_i]["color"]["red"]);
+        _songDataMap["IIdx"][_i].addAll(grayRGB);
+
       }
       _i++;
     }
