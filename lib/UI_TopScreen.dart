@@ -36,6 +36,9 @@ class TopScreen extends ConsumerWidget{
                 top: _height * 0.01
               ),
               color: Colors.white,
+              child: Text(
+                ref.watch(songDataProvider).songDataMap.toString(),
+              ),
             ),
 
             Container(
@@ -44,52 +47,54 @@ class TopScreen extends ConsumerWidget{
               color: Colors.red,
             ),
 
-            SizedBox(
-              width: _width * 0.95,
-              height: _height * 0.5,
-              child: ListView.builder(
-                itemCount: ref.watch(songDataProvider).idList.length,
-                itemBuilder: (BuildContext context, index){
-                  return Container(
-                    margin: EdgeInsets.only(
-                      bottom: _height * 0.005
-                    ),
-                    width: _width * 0.8,
-                    height: _height * 0.05,
-                    color: Colors.blue,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: _height * 0.05,
-                          width: _width * 0.03,
-                          color: Colors.green,
-                        ),
-
-                        Container(
-                          height: _height * 0.05,
-                          width: _width * 0.1,
-                          color: Colors.purple,
-                          child: Text(
-                            ref.watch(songDataProvider).
-                            songDataMap["IIdx"][index]["level"].toString(),
-                          ),
-                        ),
-
-                        Expanded(
-                          child: Container(
+            Expanded(
+              child: SizedBox(
+                width: _width * 0.95,
+                child: ListView.builder(
+                  itemCount: ref.watch(songDataProvider).idList.length,
+                  itemBuilder: (BuildContext context, index){
+                    return Container(
+                      margin: EdgeInsets.only(
+                        bottom: _height * 0.005
+                      ),
+                      width: _width * 0.8,
+                      height: _height * 0.05,
+                      color: Colors.blue,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
                             height: _height * 0.05,
-                            color: Colors.redAccent,
+                            width: _width * 0.03,
+                            color: Colors.green,
+                            
+                          ),
+
+                          Container(
+                            height: _height * 0.05,
+                            width: _width * 0.1,
+                            color: Colors.purple,
                             child: Text(
                               ref.watch(songDataProvider).
-                              songDataMap["IIdx"][index]["name"].toString(),
+                              songDataMap["IIdx"][index]["level"].toString(),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  );
-                }
+
+                          Expanded(
+                            child: Container(
+                              height: _height * 0.05,
+                              color: Colors.redAccent,
+                              child: Text(
+                                ref.watch(songDataProvider).
+                                songDataMap["IIdx"][index]["name"].toString(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                ),
               ),
             ),
 
