@@ -23,7 +23,7 @@ class TopScreen extends ConsumerWidget{
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: Colors.grey,
+        color: Colors.green.withOpacity(0.5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,7 +66,15 @@ class TopScreen extends ConsumerWidget{
                           Container(
                             height: _height * 0.05,
                             width: _width * 0.03,
-                            color: Colors.green,
+                            color: Colors.red/*Color.fromRGBO(
+                                ref.watch(songDataProvider).songDataMap["IIdx"]
+                                [ref.watch(songDataProvider).idList[index]]["color"]["red"],
+                                ref.watch(songDataProvider).songDataMap["IIdx"]
+                                [ref.watch(songDataProvider).idList[index]]["color"]["green"],
+                                ref.watch(songDataProvider).songDataMap["IIdx"]
+                                [ref.watch(songDataProvider).idList[index]]["color"]["blue"],
+                                1
+                            ),*/
                             
                           ),
 
