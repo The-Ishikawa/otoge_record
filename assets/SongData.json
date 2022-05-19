@@ -46,11 +46,12 @@
       "id": 4,
       "name": "name4",
       "level": 12,
-      "difficulty": "ANOTHER",
+      "difficulty": "NORMAL",
       "versionNumber": 7,
       "versionName": "7th Style",
       "notes": 1900,
-      "memo": ""
+      "memo": "",
+      "clear" : "EASY"
     },
     {
       "id": 5,
@@ -60,7 +61,8 @@
       "versionNumber": 7,
       "versionName": "7th Style",
       "notes": 1900,
-      "memo": ""
+      "memo": "",
+      "clear" : "ASSISTEDEASY"
     },
     {
       "id": 6,
@@ -76,11 +78,12 @@
       "id": 7,
       "name": "name7",
       "level": 12,
-      "difficulty": "ANOTHER",
+      "difficulty": "HYPER",
       "versionNumber": 7,
       "versionName": "7th Style",
       "notes": 1900,
-      "memo": ""
+      "memo": "",
+      "clear" : "HARD"
     },
     {
       "id": 8,
