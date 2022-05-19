@@ -84,7 +84,7 @@ class TopScreen extends ConsumerWidget{
                             color: Colors.purple,
                             child: Text(
                               ref.watch(songDataProvider).
-                              songDataMap["IIdx"][index]["level"].toString(),
+                              songDataMap["IIdx"][ref.watch(songDataProvider).idList[index]]["level"].toString(),
                             ),
                           ),
 
@@ -94,7 +94,7 @@ class TopScreen extends ConsumerWidget{
                               color: Colors.redAccent,
                               child: Text(
                                 ref.watch(songDataProvider).
-                                songDataMap["IIdx"][index]["name"].toString(),
+                                songDataMap["IIdx"][ref.watch(songDataProvider).idList[index]]["name"].toString(),
                               ),
                             ),
                           ),

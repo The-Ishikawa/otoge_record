@@ -11,7 +11,8 @@ class SongDataController{
   void setSongDataMap(Map _path){
     _songDataMap = _path;
     mapToIdList();
-    //colorToMap();
+    print(_songDataMap["IIdx"][0].containsKey("clear"));
+    colorToMap();
     songDataProvider?.setSongDataMap(_songDataMap);
   }
   void mapToIdList(){
@@ -31,12 +32,13 @@ class SongDataController{
       if(_songDataMap["IIdx"][_i]["notes"] == -1){
         break;
       }
-      if(_songDataMap["IIdx"][_i].containsKey("clear")){
+      if(_songDataMap["IIdx"][_i].containsKey("clear") == true){
 
-      }else{
+      }else if(_songDataMap["IIdx"][_i].containsKey("clear") == false){
         _songDataMap["IIdx"][_i]["color"]["red"] = 128;
         _songDataMap["IIdx"][_i]["color"]["green"] = 128;
         _songDataMap["IIdx"][_i]["color"]["blue"] = 128;
+        print(_songDataMap["IIdx"][_i]["color"]["red"]);
       }
       _i++;
     }
