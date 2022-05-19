@@ -34,7 +34,7 @@ class SongDataController{
     var _noPlayRGB ={"red": 20, "green": 20, "blue": 20};
     var _fullcomboRGB = {"red": 254, "green": 195, "blue": 200};
     var _exhardRGB = {"red": 128, "green": 128, "blue": 128};
-    var _hardRGB = {"red": 256, "green": 256, "blue": 256};
+    var _hardRGB = {"red": 255, "green": 255, "blue": 255};
     var _normalRGB = {"red": 0, "green": 255, "blue": 255};
     var _easyRGB = {"red": 146, "green": 255, "blue": 20};
     var _assistedRGB = {"red": 255, "green": 64, "blue": 255};

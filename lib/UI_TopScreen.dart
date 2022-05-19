@@ -81,12 +81,15 @@ class TopScreen extends ConsumerWidget{
                             height: _height * 0.05,
                             width: _width * 0.1,
                             color: Colors.black.withOpacity(0.6),
-                            child: Text(
-                              ref.watch(songDataProvider).
-                              songDataMap["IIdx"][ref.watch(songDataProvider)
-                                  .idList[index]]["level"].toString(),
-                              style: const TextStyle(
-                                color: Colors.white,
+                            child: Center(
+                              child: Text(
+                                ref.watch(songDataProvider).
+                                songDataMap["IIdx"][ref.watch(songDataProvider)
+                                    .idList[index]]["level"].toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: _height * 0.035,
+                                ),
                               ),
                             ),
                           ),
@@ -95,12 +98,16 @@ class TopScreen extends ConsumerWidget{
                             child: Container(
                               height: _height * 0.05,
                               color: Colors.black.withOpacity(0.6),
-                              child: Text(
-                                ref.watch(songDataProvider).
-                                songDataMap["IIdx"][ref.watch(songDataProvider)
-                                    .idList[index]]["name"].toString(),
-                                style: const TextStyle(
-                                  color: Colors.white,
+                              child: Align(
+                                alignment: const Alignment(-0.95, 0),
+                                child: Text(
+                                  ref.watch(songDataProvider).
+                                  songDataMap["IIdx"][ref.watch(songDataProvider)
+                                      .idList[index]]["name"].toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: _height * 0.035,
+                                  ),
                                 ),
                               ),
                             ),
