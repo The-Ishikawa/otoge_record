@@ -7,8 +7,8 @@ import 'Provider_SongDataProvider.dart';
 final songDataProvider =
 ChangeNotifierProvider((ref) => SongDataProvider());  //provider
 
-class TopScreen extends ConsumerWidget{
-  const TopScreen({Key? key}) : super(key: key);
+class HomeScreen extends ConsumerWidget{
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref){
@@ -17,9 +17,6 @@ class TopScreen extends ConsumerWidget{
     songDataController.setReference(ref.read(songDataProvider));
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("listview"),
-      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -44,7 +41,6 @@ class TopScreen extends ConsumerWidget{
             Container(
               width: _width,
               height: _height * 0.06,
-              color: Colors.red,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,6 +69,15 @@ class TopScreen extends ConsumerWidget{
                       },
                       child: const Text(
                           "reset search"
+                      )
+                  ),
+
+                  ElevatedButton(
+                      onPressed:(){
+                        songDataController.resetSearchSongData();
+                      },
+                      child: const Text(
+                          "search"
                       )
                   ),
                 ],

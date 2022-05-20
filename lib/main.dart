@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:otoge_record/Controller_SongDataController.dart';
 
+
 ///other dart files
 import 'Provider_SongDataProvider.dart';
-import 'UI_TopScreen.dart';
+import 'UI_HomeScreen.dart';
+import 'UI_BottomTabScreen.dart';
 
 SongDataController songDataController = SongDataController();
 
@@ -32,6 +34,7 @@ class MyApp extends StatelessWidget {
       title: 'otoge_record',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MyHomePage(),
     );
@@ -87,6 +90,6 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
 
   @override
   Widget build(BuildContext context){
-    return const TopScreen();
+    return BottomTabPage();
   }
 }
