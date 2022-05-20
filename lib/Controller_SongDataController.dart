@@ -75,7 +75,7 @@ class SongDataController{
     _tentativeList.clear();
     for(var _i = 0; _i < _idList.length; _i++){
       if(_stableSongDataMap["IIdx"][_i].containsKey(type) == false){
-
+        _tentativeList.add(_idList[_i]);
       }
       else if(_stableSongDataMap["IIdx"][_idList[_i]][type] == content) {
         _tentativeList.add(_idList[_i]);
@@ -84,8 +84,11 @@ class SongDataController{
     songDataProvider?.setIdList(_tentativeList);
   }
 
-  void resetSearchSongData(){
+  void resetTentativeList(){
     _tentativeList.clear();
+  }
+
+  void resetSearchSongData(){
     songDataProvider?.setIdList(_idList);
   }
 }
