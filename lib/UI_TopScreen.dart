@@ -45,6 +45,38 @@ class TopScreen extends ConsumerWidget{
               width: _width,
               height: _height * 0.06,
               color: Colors.red,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                      onPressed:(){
+                        songDataController.searchSongData("level", 12);
+                      },
+                      child: const Text(
+                        "search level12"
+                      )
+                  ),
+
+                  ElevatedButton(
+                      onPressed:(){
+                        songDataController.searchSongData("clear", "NOPLAY");
+                      },
+                      child: const Text(
+                          "search NOPLAY"
+                      )
+                  ),
+
+                  ElevatedButton(
+                      onPressed:(){
+                        songDataController.resetSearchSongData();
+                      },
+                      child: const Text(
+                          "reset search"
+                      )
+                  ),
+                ],
+              ),
             ),
 
             Expanded(

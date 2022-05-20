@@ -3,7 +3,7 @@ import 'package:otoge_record/Provider_SongDataProvider.dart';
 class SongDataController{
   Map _stableSongDataMap = {};
   Map _variableMap = {};
-  Map _tentativeMap = {};
+  List _tentativeList = [];
   List _idList = [];
   SongDataProvider? songDataProvider;
 
@@ -71,7 +71,21 @@ class SongDataController{
     }
   }
 
-  void nameSort() {
-    int _i = 0;
+  void searchSongData(String type, var content){
+    _tentativeList.clear();
+    for(var _i = 0; _i < _idList.length; _i++){
+      if(_stableSongDataMap["IIdx"][_i].containsKey(type) == false){
+
+      }
+      else if(_stableSongDataMap["IIdx"][_idList[_i]][type] == content) {
+        _tentativeList.add(_idList[_i]);
+      }
+    }
+    songDataProvider?.setIdList(_tentativeList);
+  }
+
+  void resetSearchSongData(){
+    _tentativeList.clear();
+    songDataProvider?.setIdList(_idList);
   }
 }
