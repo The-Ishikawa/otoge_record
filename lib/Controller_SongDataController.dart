@@ -1,7 +1,9 @@
 import 'package:otoge_record/Provider_SongDataProvider.dart';
 
 class SongDataController{
-  Map _songDataMap = {};
+  Map _stableSongDataMap = {};
+  Map _variableMap = {};
+  Map _tentativeMap = {};
   List _idList = [];
   SongDataProvider? songDataProvider;
 
@@ -10,20 +12,19 @@ class SongDataController{
   }
 
   void setSongDataMap(Map _path){
-    _songDataMap = _path;
+    _stableSongDataMap = _path;
     mapToIdList();
-    print(_songDataMap["IIdx"][0].containsKey("clear"));
     clearLampColorToMap();
-    songDataProvider?.setSongDataMap(_songDataMap);
+    songDataProvider?.setSongDataMap(_stableSongDataMap);
   }
 
   void mapToIdList(){
     int _i = 0;
     while(true) {
-      if (_songDataMap["IIdx"][_i]['notes'] == -1) {
+      if (_stableSongDataMap["IIdx"][_i]['notes'] == -1) {
         break;
       }
-      _idList.add(_songDataMap["IIdx"][_i]["id"]);
+      _idList.add(_stableSongDataMap["IIdx"][_i]["id"]);
       _i++;
     }
     songDataProvider?.setIdList(_idList);
@@ -41,32 +42,36 @@ class SongDataController{
     var _failedRGB = {"red": 192, "green": 0, "blue": 0};
 
     while(true){
-      if(_songDataMap["IIdx"][_i]["notes"] == -1){
+      if(_stableSongDataMap["IIdx"][_i]["notes"] == -1){
         break;
       }
-      if(_songDataMap["IIdx"][_i].containsKey("clear") == true){
-        if(_songDataMap["IIdx"][_i]["clear"] == "FULLCOMBO"){
-          _songDataMap["IIdx"][_i].addAll(_fullcomboRGB);
-        } else if(_songDataMap["IIdx"][_i]["clear"] == "EXHARD"){
-          _songDataMap["IIdx"][_i].addAll(_exhardRGB);
-        }else if(_songDataMap["IIdx"][_i]["clear"] == "HARD"){
-          _songDataMap["IIdx"][_i].addAll(_hardRGB);
-        }else if(_songDataMap["IIdx"][_i]["clear"] == "NORMAL"){
-          _songDataMap["IIdx"][_i].addAll(_normalRGB);
-        }else if(_songDataMap["IIdx"][_i]["clear"] == "EASY"){
-          _songDataMap["IIdx"][_i].addAll(_easyRGB);
-        }else if(_songDataMap["IIdx"][_i]["clear"] == "ASSISTEDEASY"){
-          _songDataMap["IIdx"][_i].addAll(_assistedRGB);
-        }else if(_songDataMap["IIdx"][_i]["clear"] == "FAILED"){
-          _songDataMap["IIdx"][_i].addAll(_failedRGB);
+      if(_stableSongDataMap["IIdx"][_i].containsKey("clear") == true){
+        if(_stableSongDataMap["IIdx"][_i]["clear"] == "FULLCOMBO"){
+          _stableSongDataMap["IIdx"][_i].addAll(_fullcomboRGB);
+        } else if(_stableSongDataMap["IIdx"][_i]["clear"] == "EXHARD"){
+          _stableSongDataMap["IIdx"][_i].addAll(_exhardRGB);
+        }else if(_stableSongDataMap["IIdx"][_i]["clear"] == "HARD"){
+          _stableSongDataMap["IIdx"][_i].addAll(_hardRGB);
+        }else if(_stableSongDataMap["IIdx"][_i]["clear"] == "NORMAL"){
+          _stableSongDataMap["IIdx"][_i].addAll(_normalRGB);
+        }else if(_stableSongDataMap["IIdx"][_i]["clear"] == "EASY"){
+          _stableSongDataMap["IIdx"][_i].addAll(_easyRGB);
+        }else if(_stableSongDataMap["IIdx"][_i]["clear"] == "ASSISTEDEASY"){
+          _stableSongDataMap["IIdx"][_i].addAll(_assistedRGB);
+        }else if(_stableSongDataMap["IIdx"][_i]["clear"] == "FAILED"){
+          _stableSongDataMap["IIdx"][_i].addAll(_failedRGB);
         }else{
           print("status [clear] error");
         }
 
-      }else if(_songDataMap["IIdx"][_i].containsKey("clear") == false){
-        _songDataMap["IIdx"][_i].addAll(_noPlayRGB);
+      }else if(_stableSongDataMap["IIdx"][_i].containsKey("clear") == false){
+        _stableSongDataMap["IIdx"][_i].addAll(_noPlayRGB);
       }
       _i++;
     }
+  }
+
+  void nameSort() {
+    int _i = 0;
   }
 }
