@@ -14,9 +14,62 @@ class SearchAndSortScreen extends ConsumerWidget{
 
     return Scaffold(
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
+        height: _height,
+        width: _width,
         color: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: _width * 0.9,
+              height: _height * 0.2,
+              child: Column(
+                children: [
+                  Container(
+                    width: _width * 0.9,
+                    height: _height * 0.1,
+                    color: Colors.grey,
+                    child: Text(
+                      "Level",
+                      style: TextStyle(
+                        fontSize: _height * 0.035,
+                      ),
+                    )
+                  ),
+
+                  Expanded(
+                    child: Row(
+                      children: [
+                        for(var _i = 1; _i <= 6; _i++)
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    _i.toString(),
+                                    style: TextStyle(
+                                      fontSize: _height * 0.02,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Checkbox(
+
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

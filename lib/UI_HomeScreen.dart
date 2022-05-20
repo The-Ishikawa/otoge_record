@@ -90,57 +90,39 @@ class HomeScreen extends ConsumerWidget{
                 child: ListView.builder(
                   itemCount: ref.watch(songDataProvider).idList.length,
                   itemBuilder: (BuildContext context, index){
-                    return Container(
-                      margin: EdgeInsets.only(
-                        bottom: _height * 0.005
-                      ),
-                      width: _width * 0.8,
-                      height: _height * 0.05,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: _height * 0.05,
-                            width: _width * 0.03,
-                            color: Color.fromRGBO(
-                                ref.watch(songDataProvider).songDataMap["IIdx"]
-                                [ref.watch(songDataProvider).idList[index]]["red"],
-                                ref.watch(songDataProvider).songDataMap["IIdx"]
-                                [ref.watch(songDataProvider).idList[index]]["green"],
-                                ref.watch(songDataProvider).songDataMap["IIdx"]
-                                [ref.watch(songDataProvider).idList[index]]["blue"],
-                                1
-                            ),
-                            
-                          ),
-
-                          Container(
-                            height: _height * 0.05,
-                            width: _width * 0.1,
-                            color: Colors.black.withOpacity(0.6),
-                            child: Center(
-                              child: Text(
-                                ref.watch(songDataProvider).
-                                songDataMap["IIdx"][ref.watch(songDataProvider)
-                                    .idList[index]]["level"].toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: _height * 0.035,
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          Expanded(
-                            child: Container(
+                    return Card(
+                      elevation: _height * 0.005,
+                      margin: EdgeInsets.only(bottom: _height * 0.005),
+                      child: SizedBox(
+                        width: _width * 0.8,
+                        height: _height * 0.05,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
                               height: _height * 0.05,
+                              width: _width * 0.03,
+                              color: Color.fromRGBO(
+                                  ref.watch(songDataProvider).songDataMap["IIdx"]
+                                  [ref.watch(songDataProvider).idList[index]]["red"],
+                                  ref.watch(songDataProvider).songDataMap["IIdx"]
+                                  [ref.watch(songDataProvider).idList[index]]["green"],
+                                  ref.watch(songDataProvider).songDataMap["IIdx"]
+                                  [ref.watch(songDataProvider).idList[index]]["blue"],
+                                  1
+                              ),
+
+                            ),
+
+                            Container(
+                              height: _height * 0.05,
+                              width: _width * 0.1,
                               color: Colors.black.withOpacity(0.6),
-                              child: Align(
-                                alignment: const Alignment(-0.95, 0),
+                              child: Center(
                                 child: Text(
                                   ref.watch(songDataProvider).
                                   songDataMap["IIdx"][ref.watch(songDataProvider)
-                                      .idList[index]]["name"].toString(),
+                                      .idList[index]]["level"].toString(),
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: _height * 0.035,
@@ -148,8 +130,27 @@ class HomeScreen extends ConsumerWidget{
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+
+                            Expanded(
+                              child: Container(
+                                height: _height * 0.05,
+                                color: Colors.black.withOpacity(0.6),
+                                child: Align(
+                                  alignment: const Alignment(-0.95, 0),
+                                  child: Text(
+                                    ref.watch(songDataProvider).
+                                    songDataMap["IIdx"][ref.watch(songDataProvider)
+                                        .idList[index]]["name"].toString(),
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: _height * 0.035,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   }
