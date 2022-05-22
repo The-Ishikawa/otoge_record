@@ -5,6 +5,8 @@ class SongDataController{
   Map _variableMap = {};
   List _tentativeList = [];
   List _idList = [];
+  List _checkBoxValue =  <bool>[true, true, true, true, true,
+    true, true, true, true, true , true, true];
   SongDataProvider? songDataProvider;
 
   void setReference(SongDataProvider _instanceReference){
@@ -90,5 +92,10 @@ class SongDataController{
 
   void resetSearchSongData(){
     songDataProvider?.setIdList(_idList);
+  }
+
+  void changeCheckBoxValue(int _i){
+    _checkBoxValue[_i] = !_checkBoxValue[_i];
+    songDataProvider?.setCheckBoxValue(_checkBoxValue);
   }
 }

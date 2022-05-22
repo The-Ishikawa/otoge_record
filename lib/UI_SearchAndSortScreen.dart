@@ -21,14 +21,17 @@ class SearchAndSortScreen extends ConsumerWidget{
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              width: _width * 0.9,
+            Container(
+              width: _width,
               height: _height * 0.2,
+              padding: EdgeInsets.only(
+                bottom: _height * 0.005
+              ),
               child: Column(
                 children: [
                   Container(
-                    width: _width * 0.9,
-                    height: _height * 0.1,
+                    width: _width,
+                    height: _height * 0.05,
                     color: Colors.grey,
                     child: Text(
                       "Level",
@@ -38,32 +41,66 @@ class SearchAndSortScreen extends ConsumerWidget{
                     )
                   ),
 
+                  for(var _j = 0; _j <= 1; _j++)
                   Expanded(
                     child: Row(
                       children: [
-                        for(var _i = 1; _i <= 6; _i++)
+                        for(var _i = 0; _i <= 5; _i++)
                           Expanded(
                             child: Column(
                               children: [
+                                const Expanded(
+                                    child: SizedBox()
+                                ),
+
                                 Expanded(
                                   child: Text(
-                                    _i.toString(),
+                                    (_i + 1 + (_j * 6)).toString(),
                                     style: TextStyle(
                                       fontSize: _height * 0.02,
                                     ),
                                   ),
                                 ),
+
                                 Expanded(
                                   child: Checkbox(
-
+                                    value: ref.watch(songDataProvider).checkBoxValue[_i + (_j * 6)],
+                                    onChanged: (ref){
+                                      songDataController.changeCheckBoxValue(_i + (_j * 6));
+                                    }
                                   ),
-                                )
+                                ),
                               ],
                             ),
-                          )
+                          ),
                       ],
                     ),
                   ),
+                ],
+              ),
+            ),
+
+            Container(
+              width: _width,
+              height: _height * 0.2,
+              padding: EdgeInsets.only(
+                  bottom: _height * 0.005
+              ),
+              child: Column(
+                children: [
+                  Container(
+                      width: _width,
+                      height: _height * 0.05,
+                      color: Colors.grey,
+                      child: Text(
+                        "difficulty",
+                        style: TextStyle(
+                          fontSize: _height * 0.035,
+                        ),
+                      )
+                  ),
+
+
 
                 ],
               ),
