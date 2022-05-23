@@ -99,6 +99,9 @@ class SearchAndSortScreen extends ConsumerWidget{
                         ),
                       )
                   ),
+                  const Expanded(
+                    child: DropDownList(),
+                  )
 
 
 
@@ -107,6 +110,64 @@ class SearchAndSortScreen extends ConsumerWidget{
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class DropDownList extends StatefulWidget{
+  const DropDownList({Key? key}) : super(key: key);
+  @override
+  _DropDownListState createState() => _DropDownListState();
+}
+
+class _DropDownListState extends State<DropDownList>{
+  String? isSelectedItem = "ALL VERSION";
+
+  @override
+  Widget build(BuildContext context){
+    return Center(
+      child: DropdownButton(
+        items: const [
+          DropdownMenuItem(child: Text("ALL VERSION"), value: "ALL VERSION",),
+          DropdownMenuItem(child: Text("1st Style"), value: "1st Style",),
+          DropdownMenuItem(child: Text("substream"), value: "substream",),
+          DropdownMenuItem(child: Text("2nd Style"), value: "2nd Style",),
+          DropdownMenuItem(child: Text("3rd Style"), value: "3rd Style",),
+          DropdownMenuItem(child: Text("4th Style"), value: "4th Style",),
+          DropdownMenuItem(child: Text("5th Style"), value: "5th Style",),
+          DropdownMenuItem(child: Text("6th Style"), value: "6th Style",),
+          DropdownMenuItem(child: Text("7th Style"), value: "7th Style",),
+          DropdownMenuItem(child: Text("8th Style"), value: "8th Style",),
+          DropdownMenuItem(child: Text("9th Style"), value: "9th Style",),
+          DropdownMenuItem(child: Text("10th Style"), value: "10th Style",),
+          DropdownMenuItem(child: Text("IIDX RED"), value: "IIDX RED",),
+          DropdownMenuItem(child: Text("HAPPY SKY"), value: "HAPPY SKY",),
+          DropdownMenuItem(child: Text("Distorted"), value: "Distorted",),
+          DropdownMenuItem(child: Text("GOLD"), value: "GOLD",),
+          DropdownMenuItem(child: Text("DJ TROOPERS"), value: "DJ TROOPERS",),
+          DropdownMenuItem(child: Text("EMPRESS"), value: "EMPRESS",),
+          DropdownMenuItem(child: Text("SIRIUS"), value: "SIRIUS",),
+          DropdownMenuItem(child: Text("Resort Anthem"), value: "Resort Anthem",),
+          DropdownMenuItem(child: Text("Lincle"), value: "Lincle",),
+          DropdownMenuItem(child: Text("tricoro"), value: "tricoro",),
+          DropdownMenuItem(child: Text("SPADA"), value: "SPADA",),
+          DropdownMenuItem(child: Text("PENDUAL"), value: "PENDUAL",),
+          DropdownMenuItem(child: Text("copula"), value: "copula",),
+          DropdownMenuItem(child: Text("SINOBUZ"), value: "SINOBUZ",),
+          DropdownMenuItem(child: Text("CANNON BALLERS"), value: "CANNON BALLERS",),
+          DropdownMenuItem(child: Text("Rootage"), value: "Rootage",),
+          DropdownMenuItem(child: Text("HEROIC VERSE"), value: "HEROIC VERSE",),
+          DropdownMenuItem(child: Text("BISTROVER"), value: "BISTROVER",),
+          DropdownMenuItem(child: Text("CastHour"), value: "CastHour",),
+        ],
+        onChanged: (String? value){
+          setState(() {
+            isSelectedItem = value;
+            songDataController.setDifficultySelectedItem(value.toString());
+          });
+        },
+        value: isSelectedItem,
       ),
     );
   }
