@@ -56,15 +56,6 @@ class HomeScreen extends ConsumerWidget{
 
                   ElevatedButton(
                       onPressed:(){
-                        songDataController.searchSongData("clear", "NOPLAY");
-                      },
-                      child: const Text(
-                          "search NOPLAY"
-                      )
-                  ),
-
-                  ElevatedButton(
-                      onPressed:(){
                         songDataController.resetSearchSongData();
                       },
                       child: const Text(
@@ -72,14 +63,7 @@ class HomeScreen extends ConsumerWidget{
                       )
                   ),
 
-                  ElevatedButton(
-                      onPressed:(){
-                        songDataController.resetSearchSongData();
-                      },
-                      child: const Text(
-                          "search"
-                      )
-                  ),
+
                 ],
               ),
             ),

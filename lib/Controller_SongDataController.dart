@@ -1,7 +1,8 @@
 import 'package:otoge_record/Provider_SongDataProvider.dart';
 
 class SongDataController {
-  String difficultySelectedItem = "ALL VERSION";
+  String _versionSelectedItem = "ALL VERSION";
+  String _difficultySelectedItem = "ALL DIFFICULTY";
   Map _stableSongDataMap = {};
   Map _variableMap = {};
   List _tentativeList = [];
@@ -24,6 +25,7 @@ class SongDataController {
   void mapToIdList() {
     int _i = 0;
     while (true) {
+
       if (_stableSongDataMap["IIdx"][_i]['notes'] == -1) {
         break;
       }
@@ -99,8 +101,13 @@ class SongDataController {
     songDataProvider?.setCheckBoxValue(_checkBoxValue);
   }
 
+  void setVersionSelectedItem(String _path) {
+    _versionSelectedItem = _path;
+    print(_versionSelectedItem);
+  }
+
   void setDifficultySelectedItem(String _path) {
-    difficultySelectedItem = _path;
-    print(difficultySelectedItem);
+    _difficultySelectedItem = _path;
+    print(_difficultySelectedItem);
   }
 }

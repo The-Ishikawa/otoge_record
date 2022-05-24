@@ -93,21 +93,55 @@ class SearchAndSortScreen extends ConsumerWidget{
                       height: _height * 0.05,
                       color: Colors.grey,
                       child: Text(
-                        "difficulty",
+                        "Version",
                         style: TextStyle(
                           fontSize: _height * 0.035,
                         ),
                       )
                   ),
                   const Expanded(
-                    child: DropDownList(),
+                    child: DropDownVersionList(),
                   )
-
-
-
                 ],
               ),
-            )
+            ),
+
+            Container(
+              width: _width,
+              height: _height * 0.2,
+              padding: EdgeInsets.only(
+                  bottom: _height * 0.005
+              ),
+              child: Column(
+                children: [
+                  Container(
+                      width: _width,
+                      height: _height * 0.05,
+                      color: Colors.grey,
+                      child: Text(
+                        "Difficulty",
+                        style: TextStyle(
+                          fontSize: _height * 0.035,
+                        ),
+                      )
+                  ),
+                  const Expanded(
+                    child: DropDownDifficultyList(),
+                  )
+                ],
+              ),
+            ),
+
+            const Spacer(),
+
+            ElevatedButton(
+                onPressed:(){
+
+                },
+                child: const Text(
+                    "apply"
+                )
+            ),
           ],
         ),
       ),
@@ -115,14 +149,14 @@ class SearchAndSortScreen extends ConsumerWidget{
   }
 }
 
-class DropDownList extends StatefulWidget{
-  const DropDownList({Key? key}) : super(key: key);
+class DropDownVersionList extends StatefulWidget{
+  const DropDownVersionList({Key? key}) : super(key: key);
   @override
-  _DropDownListState createState() => _DropDownListState();
+  _DropDownVersionListState createState() => _DropDownVersionListState();
 }
 
-class _DropDownListState extends State<DropDownList>{
-  String? isSelectedItem = "ALL VERSION";
+class _DropDownVersionListState extends State<DropDownVersionList>{
+  String? _isSelectedItem = "ALL VERSION";
 
   @override
   Widget build(BuildContext context){
@@ -163,11 +197,44 @@ class _DropDownListState extends State<DropDownList>{
         ],
         onChanged: (String? value){
           setState(() {
-            isSelectedItem = value;
+            _isSelectedItem = value;
+            songDataController.setVersionSelectedItem(value.toString());
+          });
+        },
+        value: _isSelectedItem,
+      ),
+    );
+  }
+}
+
+class DropDownDifficultyList extends StatefulWidget{
+  const DropDownDifficultyList({Key? key}) : super(key: key);
+  @override
+  _DropDownDifficultyListState createState() => _DropDownDifficultyListState();
+}
+
+class _DropDownDifficultyListState extends State<DropDownDifficultyList>{
+  String? _isSelectedItem = "ALL DIFFICULTY";
+
+  @override
+  Widget build(BuildContext context){
+    return Center(
+      child: DropdownButton(
+        items: const [
+          DropdownMenuItem(child: Text("ALL DIFFICULTY"), value: "ALL DIFFICULTY",),
+          DropdownMenuItem(child: Text("BEGINNER"), value: "BEGINNER",),
+          DropdownMenuItem(child: Text("NORMAL"), value: "NORMAL",),
+          DropdownMenuItem(child: Text("HYPER"), value: "HYPER",),
+          DropdownMenuItem(child: Text("ANOTHER"), value: "ANOTHER",),
+          DropdownMenuItem(child: Text("LEGGENDARIA"), value: "LEGGENDARIA",),
+        ],
+        onChanged: (String? value){
+          setState(() {
+            _isSelectedItem = value;
             songDataController.setDifficultySelectedItem(value.toString());
           });
         },
-        value: isSelectedItem,
+        value: _isSelectedItem,
       ),
     );
   }
