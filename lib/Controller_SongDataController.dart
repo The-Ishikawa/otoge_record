@@ -3,10 +3,9 @@ import 'package:otoge_record/Provider_SongDataProvider.dart';
 class SongDataController {
   String _versionSelectedItem = "ALL VERSION";
   String _difficultySelectedItem = "ALL DIFFICULTY";
-  Map _stableSongDataMap = {};
-  Map _variableMap = {};
-  List _tentativeList = [];
-  List _idList = [];
+  Map _stableSongDataMap = {};  //initState か　song 追加の時しか変更しない
+  List _stableIDList = [];  //initState か　song 追加の時しか変更しない
+  List _mutableIdList = [];
   List _checkBoxValue = <bool>[true, true, true, true, true,
     true, true, true, true, true, true, true];
   SongDataProvider? songDataProvider;
@@ -15,27 +14,42 @@ class SongDataController {
     songDataProvider ??= _instanceReference;
   }
 
-  void setSongDataMap(Map _path) {
-    _stableSongDataMap = _path;
-    mapToIdList();
-    clearLampColorToMap();
-    songDataProvider?.setSongDataMap(_stableSongDataMap);
+  void setSongDataMap(Map _path) {  //stableSongData変更時に実行
+    _stableSongDataMap = _path; //controller
+    songDataProvider?.setSongDataMap(_path);  //provider
+  }
+  Map getSongDataMap(){
+    return _stableSongDataMap;
   }
 
-  void mapToIdList() {
+  void setMutableIDList(_path){
+    _mutableIdList = _path;  //controller
+    songDataProvider?.setIdList(_path); //provider
+  }
+  List getIDList(){
+    return _mutableIdList;
+  }
+
+  void setStableIDList(_path){ //あんま使わない予定
+    _stableIDList = _path;
+  }
+  List getStableIDList(){
+    return _stableIDList;
+  }
+
+  void mapToIdList() {  //stableSongData変更時に実行
     int _i = 0;
     while (true) {
-
       if (_stableSongDataMap["IIdx"][_i]['notes'] == -1) {
         break;
       }
-      _idList.add(_stableSongDataMap["IIdx"][_i]["id"]);
+      _stableIDList.add(_stableSongDataMap["IIdx"][_i]["id"]);
       _i++;
     }
-    songDataProvider?.setIdList(_idList);
+    songDataProvider?.setIdList(_stableIDList);
   }
 
-  void clearLampColorToMap() {
+  void clearLampColorToMap() {  //stableSongData変更時に実行
     int _i = 0;
     var _noPlayRGB = {"red": 20, "green": 20, "blue": 20};
     var _fullcomboRGB = {"red": 254, "green": 195, "blue": 200};
@@ -73,27 +87,6 @@ class SongDataController {
       }
       _i++;
     }
-  }
-
-  void searchSongData(String type, var content) {
-    _tentativeList.clear();
-    for (var _i = 0; _i < _idList.length; _i++) {
-      if (_stableSongDataMap["IIdx"][_i].containsKey(type) == false) {
-        _tentativeList.add(_idList[_i]);
-      }
-      else if (_stableSongDataMap["IIdx"][_idList[_i]][type] == content) {
-        _tentativeList.add(_idList[_i]);
-      }
-    }
-    songDataProvider?.setIdList(_tentativeList);
-  }
-
-  void resetTentativeList() {
-    _tentativeList.clear();
-  }
-
-  void resetSearchSongData() {
-    songDataProvider?.setIdList(_idList);
   }
 
   void changeCheckBoxValue(int _i) {

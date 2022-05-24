@@ -10,8 +10,10 @@ import 'package:otoge_record/Controller_SongDataController.dart';
 import 'Provider_SongDataProvider.dart';
 import 'UI_HomeScreen.dart';
 import 'UI_BottomTabScreen.dart';
+import 'Controller_SearchSongData.dart';
 
 SongDataController songDataController = SongDataController();
+SearchSongData searchSongData = SearchSongData();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();  //向きの固定
@@ -60,6 +62,8 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
     String _jsonString = await rootBundle.loadString("assets/SongData.json");
     Map<dynamic, dynamic> _jsonData = json.decode(_jsonString);
     songDataController.setSongDataMap(_jsonData);
+    songDataController.mapToIdList();
+    songDataController.clearLampColorToMap();
   }
 
   @override

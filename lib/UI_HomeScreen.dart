@@ -47,19 +47,10 @@ class HomeScreen extends ConsumerWidget{
                 children: [
                   ElevatedButton(
                       onPressed:(){
-                        songDataController.searchSongData("level", 12);
+                        searchSongData.search("level", 12);
                       },
                       child: const Text(
                         "search level12"
-                      )
-                  ),
-
-                  ElevatedButton(
-                      onPressed:(){
-                        songDataController.resetSearchSongData();
-                      },
-                      child: const Text(
-                          "reset search"
                       )
                   ),
 
