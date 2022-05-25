@@ -90,11 +90,6 @@ class SongDataController {
     }
   }
 
-  void changeCheckBoxValue(int _i) {
-    _checkBoxValue[_i] = !_checkBoxValue[_i];
-    songDataProvider?.setCheckBoxValue(_checkBoxValue);
-  }
-
   void setVersionSelectedItem(String _path) {
     _versionSelectedItem = _path;
     print(_versionSelectedItem);
