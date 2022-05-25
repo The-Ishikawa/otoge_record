@@ -3,6 +3,7 @@ import 'package:otoge_record/Provider_SongDataProvider.dart';
 class SongDataController {
   String _versionSelectedItem = "ALL VERSION";
   String _difficultySelectedItem = "ALL DIFFICULTY";
+  String _levelSelectedItem = "ALL LEVEL";
   Map _stableSongDataMap = {};  //initState か　song 追加の時しか変更しない
   List _stableIDList = [];  //initState か　song 追加の時しか変更しない
   List _mutableIdList = [];
@@ -102,5 +103,10 @@ class SongDataController {
   void setDifficultySelectedItem(String _path) {
     _difficultySelectedItem = _path;
     print(_difficultySelectedItem);
+  }
+
+  void setLevelSelectedItem(String _path){
+    _levelSelectedItem = _path;
+    print(_levelSelectedItem);
   }
 }

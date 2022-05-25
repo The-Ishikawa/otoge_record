@@ -41,44 +41,15 @@ class SearchAndSortScreen extends ConsumerWidget{
                     )
                   ),
 
-                  for(var _j = 0; _j <= 1; _j++)
-                  Expanded(
-                    child: Row(
-                      children: [
-                        for(var _i = 0; _i <= 5; _i++)
-                          Expanded(
-                            child: Column(
-                              children: [
-                                const Expanded(
-                                    child: SizedBox()
-                                ),
+                  const Expanded(
+                    child: DropDownLevelList(),
+                  )
 
-                                Expanded(
-                                  child: Text(
-                                    (_i + 1 + (_j * 6)).toString(),
-                                    style: TextStyle(
-                                      fontSize: _height * 0.02,
-                                    ),
-                                  ),
-                                ),
-
-                                Expanded(
-                                  child: Checkbox(
-                                    value: ref.watch(songDataProvider).checkBoxValue[_i + (_j * 6)],
-                                    onChanged: (ref){
-                                      songDataController.changeCheckBoxValue(_i + (_j * 6));
-                                    }
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
+
+
 
             Container(
               width: _width,
@@ -232,6 +203,48 @@ class _DropDownDifficultyListState extends State<DropDownDifficultyList>{
           setState(() {
             _isSelectedItem = value;
             songDataController.setDifficultySelectedItem(value.toString());
+          });
+        },
+        value: _isSelectedItem,
+      ),
+    );
+  }
+}
+
+
+class DropDownLevelList extends StatefulWidget{
+  const DropDownLevelList({Key? key}) : super(key: key);
+  @override
+  _DropDownLevelListState createState() => _DropDownLevelListState();
+}
+
+class _DropDownLevelListState extends State<DropDownLevelList>{
+  String? _isSelectedItem = "ALL LEVEL";
+
+  @override
+  Widget build(BuildContext context){
+    return Center(
+      child: DropdownButton(
+        items: const [
+          DropdownMenuItem(child: Text("ALL LEVEL"), value: "ALL LEVEL",),
+          DropdownMenuItem(child: Text("LEVEL 1"), value: "1",),
+          DropdownMenuItem(child: Text("LEVEL 2"), value: "2",),
+          DropdownMenuItem(child: Text("LEVEL 3"), value: "3",),
+          DropdownMenuItem(child: Text("LEVEL 4"), value: "4",),
+          DropdownMenuItem(child: Text("LEVEL 5"), value: "5",),
+          DropdownMenuItem(child: Text("LEVEL 6"), value: "6",),
+          DropdownMenuItem(child: Text("LEVEL 7"), value: "7",),
+          DropdownMenuItem(child: Text("LEVEL 8"), value: "8",),
+          DropdownMenuItem(child: Text("LEVEL 9"), value: "9",),
+          DropdownMenuItem(child: Text("LEVEL 10"), value: "10",),
+          DropdownMenuItem(child: Text("LEVEL 11"), value: "11",),
+          DropdownMenuItem(child: Text("LEVEL 12"), value: "12",),
+
+        ],
+        onChanged: (String? value){
+          setState(() {
+            _isSelectedItem = value;
+            songDataController.setLevelSelectedItem(value.toString());
           });
         },
         value: _isSelectedItem,
