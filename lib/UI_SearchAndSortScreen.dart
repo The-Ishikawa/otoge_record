@@ -107,7 +107,8 @@ class SearchAndSortScreen extends ConsumerWidget{
 
             ElevatedButton(
                 onPressed:(){
-
+                  searchSongData.intensiveSearch();
+                  print(songDataController.getIDList());
                 },
                 child: const Text(
                     "apply"
@@ -169,7 +170,7 @@ class _DropDownVersionListState extends State<DropDownVersionList>{
         onChanged: (String? value){
           setState(() {
             _isSelectedItem = value;
-            songDataController.setVersionSelectedItem(value.toString());
+            searchSongData.setVersionSelectedItem(value.toString());
           });
         },
         value: _isSelectedItem,
@@ -202,7 +203,7 @@ class _DropDownDifficultyListState extends State<DropDownDifficultyList>{
         onChanged: (String? value){
           setState(() {
             _isSelectedItem = value;
-            songDataController.setDifficultySelectedItem(value.toString());
+            searchSongData.setDifficultySelectedItem(value.toString());
           });
         },
         value: _isSelectedItem,
@@ -244,7 +245,7 @@ class _DropDownLevelListState extends State<DropDownLevelList>{
         onChanged: (String? value){
           setState(() {
             _isSelectedItem = value;
-            songDataController.setLevelSelectedItem(value.toString());
+            searchSongData.setLevelSelectedItem(value.toString());
           });
         },
         value: _isSelectedItem,

@@ -1,15 +1,10 @@
 import 'package:otoge_record/Provider_SongDataProvider.dart';
 
 class SongDataController {
-  String _versionSelectedItem = "ALL VERSION";
-  String _difficultySelectedItem = "ALL DIFFICULTY";
-  String _levelSelectedItem = "ALL LEVEL";
   Map _stableSongDataMap = {};  //initState か　song 追加の時しか変更しない
   List _stableIDList = [];  //initState か　song 追加の時しか変更しない
-  List _mutableIdList = [];
-  List _checkBoxValue = <bool>[true, true, true, true, true,
-    true, true, true, true, true, true, true];
-  SongDataProvider? songDataProvider;
+  List _mutableIdList = []; //search,sort時に変更する。
+  SongDataProvider? songDataProvider; //インスタンスの参照変数
 
   void setReference(SongDataProvider _instanceReference) {
     songDataProvider ??= _instanceReference;
@@ -80,28 +75,16 @@ class SongDataController {
           _stableSongDataMap["IIdx"][_i].addAll(_assistedRGB);
         } else if (_stableSongDataMap["IIdx"][_i]["clear"] == "FAILED") {
           _stableSongDataMap["IIdx"][_i].addAll(_failedRGB);
+        } else if(_stableSongDataMap["IIdx"][_i]["clear"] == "NO PLAY"){
+          _stableSongDataMap["IIdx"][_i].addAll(_noPlayRGB);
         } else {
           print("status [clear] error");
         }
       } else if (_stableSongDataMap["IIdx"][_i].containsKey("clear") == false) {
         _stableSongDataMap["IIdx"][_i].addAll(_noPlayRGB);
+        _stableSongDataMap["IIdx"][_i].addAll({"clear": "NO PLAY"});
       }
       _i++;
     }
-  }
-
-  void setVersionSelectedItem(String _path) {
-    _versionSelectedItem = _path;
-    print(_versionSelectedItem);
-  }
-
-  void setDifficultySelectedItem(String _path) {
-    _difficultySelectedItem = _path;
-    print(_difficultySelectedItem);
-  }
-
-  void setLevelSelectedItem(String _path){
-    _levelSelectedItem = _path;
-    print(_levelSelectedItem);
   }
 }
