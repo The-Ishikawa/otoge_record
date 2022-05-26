@@ -128,7 +128,7 @@ class DropDownVersionList extends StatefulWidget{
 }
 
 class _DropDownVersionListState extends State<DropDownVersionList>{
-  String? _isSelectedItem = "ALL VERSION";
+  String? _isSelectedItem = searchSongData.getVersionSelectedItem();
 
   @override
   Widget build(BuildContext context){
@@ -186,7 +186,7 @@ class DropDownDifficultyList extends StatefulWidget{
 }
 
 class _DropDownDifficultyListState extends State<DropDownDifficultyList>{
-  String? _isSelectedItem = "ALL DIFFICULTY";
+  String? _isSelectedItem = searchSongData.getDifficultySelectedItem();
 
   @override
   Widget build(BuildContext context){
@@ -220,7 +220,7 @@ class DropDownLevelList extends StatefulWidget{
 }
 
 class _DropDownLevelListState extends State<DropDownLevelList>{
-  String? _isSelectedItem = "ALL LEVEL";
+  String? _isSelectedItem = searchSongData.getLevelSelectedItem();
 
   @override
   Widget build(BuildContext context){
