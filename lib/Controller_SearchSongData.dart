@@ -4,6 +4,7 @@ class SearchSongData{
   String _versionSelectedItem = "ALL VERSION";
   String _difficultySelectedItem = "ALL DIFFICULTY";
   String _levelSelectedItem = "ALL LEVEL";
+  String _clearSelectedItem = "ALL";
   List _stableIDList = [];
   List _mutableIDList = [];
   Map _songDataMap = {};
@@ -29,6 +30,13 @@ class SearchSongData{
   String getLevelSelectedItem(){
     return _levelSelectedItem;
   }
+  void setClearSelectedItem(String _path){
+    _clearSelectedItem = _path;
+    print(_clearSelectedItem);  //debug
+  }
+  String getClearSelectedItem(){
+    return _clearSelectedItem;
+  }
 
   void intensiveSearch(){
     _mutableIDList.clear();
@@ -38,7 +46,8 @@ class SearchSongData{
     for (var _i = 0; _i < _stableIDList.length; _i++) {
       if ((_levelSelectedItem == "ALL LEVEL" || _songDataMap["IIdx"][_stableIDList[_i]]["level"] == _levelSelectedItem)&&
           (_difficultySelectedItem == "ALL DIFFICULTY" || _songDataMap["IIdx"][_stableIDList[_i]]["difficulty"] == _difficultySelectedItem)&&
-          (_versionSelectedItem == "ALL VERSION" || _songDataMap["IIdx"][_stableIDList[_i]]["versionName"] == _versionSelectedItem)
+          (_versionSelectedItem == "ALL VERSION" || _songDataMap["IIdx"][_stableIDList[_i]]["versionName"] == _versionSelectedItem) &&
+          (_clearSelectedItem == "ALL" || _songDataMap["IIdx"][_stableIDList[_i]]["clear"] == _clearSelectedItem)
       ){
         _mutableIDList.add(_stableIDList[_i]);
         print(_mutableIDList);

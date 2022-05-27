@@ -75,14 +75,14 @@ class SongDataController {
           _stableSongDataMap["IIdx"][_i].addAll(_assistedRGB);
         } else if (_stableSongDataMap["IIdx"][_i]["clear"] == "FAILED") {
           _stableSongDataMap["IIdx"][_i].addAll(_failedRGB);
-        } else if(_stableSongDataMap["IIdx"][_i]["clear"] == "NO PLAY"){
+        } else if(_stableSongDataMap["IIdx"][_i]["clear"] == "NOPLAY"){
           _stableSongDataMap["IIdx"][_i].addAll(_noPlayRGB);
         } else {
           print("status [clear] error");
         }
       } else if (_stableSongDataMap["IIdx"][_i].containsKey("clear") == false) {
         _stableSongDataMap["IIdx"][_i].addAll(_noPlayRGB);
-        _stableSongDataMap["IIdx"][_i].addAll({"clear": "NO PLAY"});
+        _stableSongDataMap["IIdx"][_i].addAll({"clear": "NOPLAY"});
       }
       _i++;
     }

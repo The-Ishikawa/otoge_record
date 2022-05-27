@@ -23,7 +23,7 @@ class SearchAndSortScreen extends ConsumerWidget{
           children: [
             Container(
               width: _width,
-              height: _height * 0.2,
+              height: _height * 0.1,
               padding: EdgeInsets.only(
                 bottom: _height * 0.005
               ),
@@ -53,7 +53,7 @@ class SearchAndSortScreen extends ConsumerWidget{
 
             Container(
               width: _width,
-              height: _height * 0.2,
+              height: _height * 0.1,
               padding: EdgeInsets.only(
                   bottom: _height * 0.005
               ),
@@ -79,7 +79,7 @@ class SearchAndSortScreen extends ConsumerWidget{
 
             Container(
               width: _width,
-              height: _height * 0.2,
+              height: _height * 0.1,
               padding: EdgeInsets.only(
                   bottom: _height * 0.005
               ),
@@ -98,6 +98,32 @@ class SearchAndSortScreen extends ConsumerWidget{
                   ),
                   const Expanded(
                     child: DropDownDifficultyList(),
+                  )
+                ],
+              ),
+            ),
+
+            Container(
+              width: _width,
+              height: _height * 0.1,
+              padding: EdgeInsets.only(
+                  bottom: _height * 0.005
+              ),
+              child: Column(
+                children: [
+                  Container(
+                      width: _width,
+                      height: _height * 0.05,
+                      color: Colors.grey,
+                      child: Text(
+                        "Clear Lamp",
+                        style: TextStyle(
+                          fontSize: _height * 0.035,
+                        ),
+                      )
+                  ),
+                  const Expanded(
+                    child: DropDownClearList(),
                   )
                 ],
               ),
@@ -246,6 +272,43 @@ class _DropDownLevelListState extends State<DropDownLevelList>{
           setState(() {
             _isSelectedItem = value;
             searchSongData.setLevelSelectedItem(value.toString());
+          });
+        },
+        value: _isSelectedItem,
+      ),
+    );
+  }
+}
+
+class DropDownClearList extends StatefulWidget{
+  const DropDownClearList({Key? key}) : super(key: key);
+  @override
+  _DropDownClearListState createState() => _DropDownClearListState();
+}
+
+class _DropDownClearListState extends State<DropDownClearList>{
+  String? _isSelectedItem = searchSongData.getClearSelectedItem();
+
+  @override
+  Widget build(BuildContext context){
+    return Center(
+      child: DropdownButton(
+        items: const [
+          DropdownMenuItem(child: Text("ALL"), value: "ALL",),
+          DropdownMenuItem(child: Text("FULLCOMBO"), value: "FULLCOMBO",),
+          DropdownMenuItem(child: Text("EXHARD"), value: "EXHARD",),
+          DropdownMenuItem(child: Text("HARD"), value: "HARD",),
+          DropdownMenuItem(child: Text("NORMAL"), value: "NORMAL",),
+          DropdownMenuItem(child: Text("EASY"), value: "EASY",),
+          DropdownMenuItem(child: Text("ASSISTEDEASY"), value: "ASSISTEDEASY",),
+          DropdownMenuItem(child: Text("FAILED"), value: "FAILED",),
+          DropdownMenuItem(child: Text("NOPLAY"), value: "NOPLAY",),
+
+        ],
+        onChanged: (String? value){
+          setState(() {
+            _isSelectedItem = value;
+            searchSongData.setClearSelectedItem(value.toString());
           });
         },
         value: _isSelectedItem,
